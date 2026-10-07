@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Qo'ziboyev | Xorazm Milliy Taomlar</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #090806;
+            color: #fff;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            min-height: 430px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.72),
+                    rgba(0,0,0,.88)
+                ),
+                url("https://images.unsplash.com/photo-1547592180-85f173990554?w=1600")
+                center/cover;
+
+            border-bottom: 1px solid #b98a38;
+        }
+
+        .logo {
+            width: 85px;
+            height: 85px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 2px solid #e4b85d;
+            border-radius: 50%;
+
+            font-size: 42px;
+
+            margin-bottom: 20px;
+
+            background: rgba(0,0,0,.55);
+
+            box-shadow:
+                0 0 35px rgba(228,184,93,.2);
+        }
+
+        header h1 {
+            font-family: Georgia, serif;
+
+            color: #e8b85b;
+
+            font-size: clamp(38px, 6vw, 65px);
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin-top: 15px;
+
+            color: #ddd;
+
+            letter-spacing: 5px;
+
+            font-size: 14px;
+        }
+
+        .header-btn {
+            margin-top: 30px;
+
+            padding: 14px 28px;
+
+            border: 1px solid #e8b85b;
+            border-radius: 30px;
+
+            background: #e8b85b;
+            color: #111;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            text-decoration: none;
+
+            transition: .3s;
+        }
+
+        .header-btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 30px;
+
+            padding: 16px;
+
+            background: rgba(10,8,6,.94);
+
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #332515;
+        }
+
+        nav a {
+            color: #ccc;
+
+            text-decoration: none;
+
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #e8b85b;
+        }
+
+        .nav-cart {
+            border: 1px solid #e8b85b;
+
+            color: #e8b85b;
+
+            padding: 8px 14px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            background: transparent;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 50px 20px;
+        }
+
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+
+            color: #e8b85b;
+
+            font-size: 36px;
+        }
+
+
+        .section-title p {
+            color: #777;
+
+            margin-top: 8px;
+        }
+
+
+        /* ================= FOOD GRID ================= */
+
+        .food-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .food-card {
+            overflow: hidden;
+
+            background: #13100d;
+
+            border: 1px solid #342719;
+
+            border-radius: 15px;
+
+            transition: .35s;
+        }
+
+
+        .food-card:hover {
+            transform: translateY(-7px);
+
+            border-color: #dcae55;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.45);
+        }
+
+
+        .food-image {
+            position: relative;
+
+            height: 250px;
+
+            overflow: hidden;
+        }
+
+
+        .food-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .5s;
+        }
+
+
+        .food-card:hover .food-image img {
+            transform: scale(1.06);
+        }
+
+
+        .category {
+            position: absolute;
+
+            left: 15px;
+            top: 15px;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            background: rgba(0,0,0,.75);
+
+            color: #e8b85b;
+
+            font-size: 12px;
+        }
+
+
+        .food-content {
+            padding: 22px;
+        }
+
+
+        .food-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+        }
+
+
+        .food-top h3 {
+            font-family: Georgia, serif;
+
+            font-size: 22px;
+        }
+
+
+        .food-price {
+            color: #e8b85b;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+        }
+
+
+        .food-description {
+            color: #888;
+
+            margin-top: 10px;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+
+        .food-buttons {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 18px;
+        }
+
+
+        .details-btn,
+        .add-btn {
+            flex: 1;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+
+        .details-btn {
+            background: transparent;
+
+            color: #ddd;
+
+            border: 1px solid #555;
+        }
+
+
+        .details-btn:hover {
+            border-color: #e8b85b;
+
+            color: #e8b85b;
+        }
+
+
+        .add-btn {
+            border: 1px solid #e8b85b;
+
+            background: #e8b85b;
+
+            color: #111;
+        }
+
+
+        .add-btn:hover {
+            background: white;
+        }
+
+
+        /* ================= DRINKS ================= */
+
+        .drink-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .drink-card {
+            padding: 25px 15px;
+
+            text-align: center;
+
+            background: #13100d;
+
+            border: 1px solid #342719;
+
+            border-radius: 12px;
+
+            transition: .3s;
+        }
+
+
+        .drink-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #e8b85b;
+        }
+
+
+        .drink-icon {
+            font-size: 42px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .drink-card h3 {
+            margin-bottom: 8px;
+        }
+
+
+        .drink-card span {
+            color: #e8b85b;
+
+            font-weight: bold;
+        }
+
+
+        .drink-card button {
+            width: 100%;
+
+            margin-top: 15px;
+
+            padding: 9px;
+
+            border: 1px solid #e8b85b;
+
+            border-radius: 7px;
+
+            background: transparent;
+
+            color: #e8b85b;
+
+            cursor: pointer;
+        }
+
+
+        .drink-card button:hover {
+            background: #e8b85b;
+
+            color: #111;
+        }
+
+
+        /* ================= MODAL ================= */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            background: rgba(0,0,0,.88);
+
+            z-index: 1000;
+        }
+
+
+        .modal.active {
+            display: flex;
+        }
+
+
+        .modal-box {
+            position: relative;
+
+            width: 850px;
+
+            max-width: 100%;
+
+            max-height: 90vh;
+
+            overflow: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            background: #14100c;
+
+            border: 1px solid #e8b85b;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            animation: popup .3s ease;
+        }
+
+
+        @keyframes popup {
+
+            from {
+                transform: scale(.8);
+
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+
+                opacity: 1;
+            }
+
+        }
+
+
+        .modal-image {
+            width: 100%;
+
+            height: 100%;
+
+            min-height: 400px;
+
+            object-fit: cover;
+        }
+
+
+        .modal-info {
+            padding: 40px;
+        }
+
+
+        .modal-info h2 {
+            color: #e8b85b;
+
+            font-family: Georgia, serif;
+
+            font-size: 32px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .modal-info p {
+            color: #ccc;
+
+            margin: 15px 0;
+
+            line-height: 1.5;
+        }
+
+
+        .modal-info strong {
+            color: #e8b85b;
+        }
+
+
+        .close {
+            position: absolute;
+
+            right: 15px;
+            top: 15px;
+
+            width: 40px;
+            height: 40px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #e8b85b;
+
+            color: #111;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            z-index: 5;
+        }
+
+
+        /* ================= CART ================= */
+
+        .overlay {
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            background: rgba(0,0,0,.75);
+
+            z-index: 1500;
+        }
+
+
+        .overlay.active {
+            display: block;
+        }
+
+
+        .cart {
+            position: fixed;
+
+            top: 0;
+            right: 0;
+
+            width: 450px;
+
+            max-width: 100%;
+
+            height: 100vh;
+
+            background: #100e0b;
+
+            border-left: 1px solid #e8b85b;
+
+            z-index: 1600;
+
+            transform: translateX(100%);
+
+            transition: .35s;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        .cart.active {
+            transform: translateX(0);
+        }
+
+
+        .cart-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 22px;
+
+            border-bottom: 1px solid #332515;
+        }
+
+
+        .cart-header h2 {
+            color: #e8b85b;
+        }
+
+
+        .close-cart {
+            border: none;
+
+            background: none;
+
+            color: white;
+
+            font-size: 30px;
+
+            cursor: pointer;
+        }
+
+
+        .cart-items {
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 20px;
+        }
+
+
+        .cart-item {
+            padding: 18px 0;
+
+            border-bottom: 1px solid #2d2419;
+        }
+
+
+        .cart-item-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+
+        .cart-item h3 {
+            font-size: 17px;
+        }
+
+
+        .cart-item-price {
+            color: #e8b85b;
+
+            font-weight: bold;
+        }
+
+
+        .quantity {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: 13px;
+        }
+
+
+        .quantity button {
+            width: 30px;
+            height: 30px;
+
+            border: 1px solid #e8b85b;
+
+            border-radius: 6px;
+
+            background: transparent;
+
+            color: #e8b85b;
+
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+
+        .quantity .remove {
+            margin-left: auto;
+
+            border: none;
+
+            color: #d66;
+
+            width: auto;
+
+            padding: 0 5px;
+        }
+
+
+        .empty {
+            text-align: center;
+
+            color: #777;
+
+            margin-top: 80px;
+        }
+
+
+        .cart-footer {
+            padding: 22px;
+
+            border-top: 1px solid #332515;
+        }
+
+
+        .total {
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 20px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .total strong {
+            color: #e8b85b;
+        }
+
+
+        .checkout-btn {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #e8b85b;
+
+            color: #111;
+
+            font-weight: bold;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+
+        .checkout-btn:hover {
+            background: white;
+        }
+
+
+        /* ================= CHECKOUT ================= */
+
+        .checkout-box {
+            width: 500px;
+
+            max-width: 100%;
+
+            background: #14100c;
+
+            border: 1px solid #e8b85b;
+
+            border-radius: 15px;
+
+            padding: 30px;
+        }
+
+
+        .checkout-box h2 {
+            color: #e8b85b;
+
+            margin-bottom: 20px;
+        }
+
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #aaa;
+        }
+
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+
+            padding: 13px;
+
+            background: #0c0a08;
+
+            color: white;
+
+            border: 1px solid #3b2d1c;
+
+            border-radius: 8px;
+
+            outline: none;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #e8b85b;
+        }
+
+
+        .form-group textarea {
+            resize: vertical;
+
+            min-height: 80px;
+        }
+
+
+        .telegram-btn {
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #229ed9;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .telegram-btn:hover {
+            background: #1688bd;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+
+            padding: 35px;
+
+            border-top: 1px solid #302316;
+
+            color: #777;
+        }
+
+
+        footer strong {
+            color: #e8b85b;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width: 850px) {
+
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .drink-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .modal-box {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-image {
+                height: 250px;
+                min-height: 250px;
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            nav {
+                gap: 12px;
+
+                font-size: 13px;
+            }
+
+            nav a {
+                display: none;
+            }
+
+            .food-top {
+                flex-direction: column;
+            }
+
+            .drink-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .food-buttons {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        🍽️
+    </div>
+
+    <h1>O'zbek Taomlari</h1>
+
+    <p>MILLIY TA'M • SAMIMIY XIZMAT • YUQORI SIFAT</p>
+
+    <a
+        href="#menu"
+        class="header-btn"
+    >
+        Menyuni ko'rish
+    </a>
+
+</header>
+
+
+<!-- ================= NAV ================= -->
+
+<nav>
+
+    <a href="#menu">
+        Menyu
+    </a>
+
+    <a href="#kabob">
+        Kaboblar
+    </a>
+
+    <a href="#baliq">
+        Baliq
+    </a>
+
+    <a href="#drinks">
+        Ichimliklar
+    </a>
+
+    <button
+        class="nav-cart"
+        onclick="openCart()"
+    >
+        🛒 Savatcha
+        (<span id="cartCount">0</span>)
+    </button>
+
+</nav>
+
+
+<!-- ================= MENU ================= -->
+
+<main
+    class="container"
+    id="menu"
+>
+
+
+    <!-- ================= KABOB ================= -->
+
+    <section
+        class="section"
+        id="kabob"
+    >
+
+        <div class="section-title">
+
+            <h2>🥩 Kaboblar</h2>
+
+            <p>
+                An'anaviy usulda tayyorlangan mazali kaboblar
+            </p>
+
+        </div>
+
+
+        <div class="food-grid">
+
+
+            <!-- MOL -->
+
+            <article class="food-card">
+
+                <div class="food-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1000"
+                        alt="Mol go'shti kabob"
+                    >
+
+                    <span class="category">
+                        Kabob
+                    </span>
+
+                </div>
+
+
+                <div class="food-content">
+
+                    <div class="food-top">
+
+                        <h3>
+                            Mol go'shti kabob
+                        </h3>
+
+                        <span class="food-price">
+                            35 000 so'm
+                        </span>
+
+                    </div>
+
+
+                    <p class="food-description">
+                        Yumshoq mol go'shti,
+                        piyoz va maxsus ziravorlar.
+                    </p>
+
+
+                    <div class="food-buttons">
+
+                        <button
+                            class="details-btn"
+                            onclick="showDetails(
+                                'Mol go‘shti kabob',
+                                '35 000 so‘m',
+                                'Mol go‘shti, piyoz, tuz va maxsus ziravorlar',
+                                '0.5 kg',
+                                'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1000'
+                            )"
+                        >
+                            Batafsil
+                        </button>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Mol go‘shti kabob',
+                                35000
+                            )"
+                        >
+                            🛒 Qo'shish
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- QO'Y -->
+
+            <article class="food-card">
+
+                <div class="food-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1000"
+                        alt="Qo'y go'shti kabob"
+                    >
+
+                    <span class="category">
+                        Kabob
+                    </span>
+
+                </div>
+
+
+                <div class="food-content">
+
+                    <div class="food-top">
+
+                        <h3>
+                            Qo'y go'shti kabob
+                        </h3>
+
+                        <span class="food-price">
+                            40 000 so'm
+                        </span>
+
+                    </div>
+
+
+                    <p class="food-description">
+                        An'anaviy usulda tayyorlangan
+                        mazali qo'y go'shti kabobi.
+                    </p>
+
+
+                    <div class="food-buttons">
+
+                        <button
+                            class="details-btn"
+                            onclick="showDetails(
+                                'Qo‘y go‘shti kabob',
+                                '40 000 so‘m',
+                                'Qo‘y go‘shti, piyoz, tuz, murch va ziravorlar',
+                                '0.5 kg',
+                                'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1000'
+                            )"
+                        >
+                            Batafsil
+                        </button>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Qo‘y go‘shti kabob',
+                                40000
+                            )"
+                        >
+                            🛒 Qo'shish
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= BALIQ ================= -->
+
+    <section
+        class="section"
+        id="baliq"
+    >
+
+        <div class="section-title">
+
+            <h2>🐟 Baliq</h2>
+
+            <p>
+                Yangi va mazali baliq taomlari
+            </p>
+
+        </div>
+
+
+        <div class="food-grid">
+
+
+            <!-- QOVURILGAN -->
+
+            <article class="food-card">
+
+                <div class="food-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?w=1000"
+                        alt="Qovurilgan baliq"
+                    >
+
+                    <span class="category">
+                        Baliq
+                    </span>
+
+                </div>
+
+
+                <div class="food-content">
+
+                    <div class="food-top">
+
+                        <h3>
+                            Qovurilgan baliq
+                        </h3>
+
+                        <span class="food-price">
+                            45 000 so'm
+                        </span>
+
+                    </div>
+
+
+                    <p class="food-description">
+                        Yangi baliq maxsus
+                        ziravorlar bilan qovuriladi.
+                    </p>
+
+
+                    <div class="food-buttons">
+
+                        <button
+                            class="details-btn"
+                            onclick="showDetails(
+                                'Qovurilgan baliq',
+                                '45 000 so‘m',
+                                'Yangi baliq, limon, tuz va maxsus ziravorlar',
+                                '0.7 kg',
+                                'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?w=1000'
+                            )"
+                        >
+                            Batafsil
+                        </button>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Qovurilgan baliq',
+                                45000
+                            )"
+                        >
+                            🛒 Qo'shish
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- GRIL -->
+
+            <article class="food-card">
+
+                <div class="food-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=1000"
+                        alt="Grilda pishirilgan baliq"
+                    >
+
+                    <span class="category">
+                        Baliq
+                    </span>
+
+                </div>
+
+
+                <div class="food-content">
+
+                    <div class="food-top">
+
+                        <h3>
+                            Grilda pishirilgan baliq
+                        </h3>
+
+                        <span class="food-price">
+                            50 000 so'm
+                        </span>
+
+                    </div>
+
+
+                    <p class="food-description">
+                        Tabiiy ta'mi saqlangan holda
+                        grilda pishirilgan baliq.
+                    </p>
+
+
+                    <div class="food-buttons">
+
+                        <button
+                            class="details-btn"
+                            onclick="showDetails(
+                                'Grilda pishirilgan baliq',
+                                '50 000 so‘m',
+                                'Yangi baliq, limon, ko‘katlar va ziravorlar',
+                                '0.8 kg',
+                                'https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=1000'
+                            )"
+                        >
+                            Batafsil
+                        </button>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Grilda pishirilgan baliq',
+                                50000
+                            )"
+                        >
+                            🛒 Qo'shish
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= DRINKS ================= -->
+
+    <section
+        class="section"
+        id="drinks"
+    >
+
+        <div class="section-title">
+
+            <h2>🥤 Salqin ichimliklar</h2>
+
+            <p>
+                Taomingiz uchun salqin ichimliklar
+            </p>
+
+        </div>
+
+
+        <div class="drink-grid">
+
+
+            <div class="drink-card">
+
+                <div class="drink-icon">
+                    🥤
+                </div>
+
+                <h3>
+                    Coca-Cola
+                </h3>
+
+                <span>
+                    10 000 so'm
+                </span>
+
+                <button
+                    onclick="addToCart(
+                        'Coca-Cola',
+                        10000
+                    )"
+                >
+                    + Qo'shish
+                </button>
+
+            </div>
+
+
+            <div class="drink-card">
+
+                <div class="drink-icon">
+                    🧃
+                </div>
+
+                <h3>
+                    Fanta
+                </h3>
+
+                <span>
+                    10 000 so'm
+                </span>
+
+                <button
+                    onclick="addToCart(
+                        'Fanta',
+                        10000
+                    )"
+                >
+                    + Qo'shish
+                </button>
+
+            </div>
+
+
+            <div class="drink-card">
+
+                <div class="drink-icon">
+                    🥤
+                </div>
+
+                <h3>
+                    Sprite
+                </h3>
+
+                <span>
+                    10 000 so'm
+                </span>
+
+                <button
+                    onclick="addToCart(
+                        'Sprite',
+                        10000
+                    )"
+                >
+                    + Qo'shish
+                </button>
+
+            </div>
+
+
+            <div class="drink-card">
+
+                <div class="drink-icon">
+                    💧
+                </div>
+
+                <h3>
+                    Mineral suv
+                </h3>
+
+                <span>
+                    5 000 so'm
+                </span>
+
+                <button
+                    onclick="addToCart(
+                        'Mineral suv',
+                        5000
+                    )"
+                >
+                    + Qo'shish
+                </button>
+
+            </div>
+
+
+            <div class="drink-card">
+
+                <div class="drink-icon">
+                    🧊
+                </div>
+
+                <h3>
+                    Sovuq choy
+                </h3>
+
+                <span>
+                    5 000 so'm
+                </span>
+
+                <button
+                    onclick="addToCart(
+                        'Sovuq choy',
+                        5000
+                    )"
+                >
+                    + Qo'shish
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- ================= DETAILS MODAL ================= -->
+
+<div
+    class="modal"
+    id="detailsModal"
+    onclick="closeDetailsOutside(event)"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeDetails()"
+        >
+            ×
+        </button>
+
+
+        <img
+            class="modal-image"
+            id="modalImage"
+            src=""
+            alt="Taom"
+        >
+
+
+        <div class="modal-info">
+
+            <h2 id="modalName"></h2>
+
+
+            <p>
+                <strong>🥩 Tarkibi:</strong>
+                <span id="modalIngredients"></span>
+            </p>
+
+
+            <p>
+                <strong>⚖️ Og'irligi:</strong>
+                <span id="modalWeight"></span>
+            </p>
+
+
+            <p>
+                <strong>💰 Narxi:</strong>
+                <span id="modalPrice"></span>
+            </p>
+
+
+            <button
+                class="add-btn"
+                style="width:100%; margin-top:20px;"
+                id="modalAdd"
+            >
+                🛒 Savatchaga qo'shish
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= CART OVERLAY ================= -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()"
+></div>
+
+
+
+<!-- ================= CART ================= -->
+
+<aside
+    class="cart"
+    id="cart"
+>
+
+    <div class="cart-header">
+
+        <h2>
+            🛒 Savatcha
+        </h2>
+
+        <button
+            class="close-cart"
+            onclick="closeCart()"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems"
+    ></div>
+
+
+    <div class="cart-footer">
+
+        <div class="total">
+
+            <span>
+                Jami:
+            </span>
+
+            <strong id="totalPrice">
+                0 so'm
+            </strong>
+
+        </div>
+
+
+        <button
+            class="checkout-btn"
+            onclick="openCheckout()"
+        >
+            Buyurtma berish
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<div
+    class="modal"
+    id="checkoutModal"
+>
+
+    <div class="checkout-box">
+
+        <button
+            class="close"
+            onclick="closeCheckout()"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            📋 Buyurtma berish
+        </h2>
+
+
+        <div class="form-group">
+
+            <label>
+                Ismingiz
+            </label>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Masalan: Azizbek"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Telefon raqam
+            </label>
+
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="+998 90 123 45 67"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Yetkazib berish
+            </label>
+
+            <select id="delivery">
+
+                <option>
+                    Restorandan olib ketaman
+                </option>
+
+                <option>
+                    Yetkazib berish
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Manzil
+            </label>
+
+            <textarea
+                id="address"
+                placeholder="Manzilingiz..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Qo'shimcha izoh
+            </label>
+
+            <textarea
+                id="comment"
+                placeholder="Masalan: piyozsiz..."
+            ></textarea>
+
+        </div>
+
+
+        <button
+            class="telegram-btn"
+            onclick="sendTelegram()"
+        >
+            📲 Telegram orqali buyurtma berish
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026
+
+    <strong>
+        O'zbek Taomlari
+    </strong>
+
+    — Mazali taom, yaxshi kayfiyat!
+
+</footer>
+
+
+
+<script>
+
+
+/* ==========================================
+   TELEGRAM
+========================================== */
+
+/*
+   SHU YERGA RESTORAN TELEGRAM USERNAME'INI
+   YOZASAN.
+
+   Masalan:
+
+   const TELEGRAM_USERNAME = "oshmarkazi";
+
+*/
+
+const TELEGRAM_USERNAME = "restaurant_demo";
+
+
+
+/* ==========================================
+   CART
+========================================== */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("restaurantCart")
+    ) || [];
+
+
+
+/* ==========================================
+   PRICE FORMAT
+========================================== */
+
+function formatPrice(price) {
+
+    return price.toLocaleString("uz-UZ")
+        + " so'm";
+
+}
+
+
+
+/* ==========================================
+   ADD TO CART
+========================================== */
+
+function addToCart(name, price) {
+
+    const existing =
+        cart.find(item =>
+            item.name === name
+        );
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    } else {
+
+        cart.push({
+
+            name: name,
+
+            price: price,
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+
+/* ==========================================
+   SAVE
+========================================== */
+
+function saveCart() {
+
+    localStorage.setItem(
+        "restaurantCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+
+/* ==========================================
+   UPDATE CART
+========================================== */
+
+function updateCart() {
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    const totalPrice =
+        document.getElementById("totalPrice");
+
+
+    cartItems.innerHTML = "";
+
+
+    let total = 0;
+
+    let count = 0;
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+            <div class="empty">
+                🛒<br><br>
+                Savatchangiz bo'sh
+            </div>
+        `;
+
+    }
+
+
+    cart.forEach((item, index) => {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+
+        total += itemTotal;
+
+        count += item.quantity;
+
+
+        cartItems.innerHTML += `
+
+            <div class="cart-item">
+
+                <div class="cart-item-top">
+
+                    <h3>
+                        ${item.name}
+                    </h3>
+
+                    <span class="cart-item-price">
+                        ${formatPrice(itemTotal)}
+                    </span>
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <button
+                        onclick="decreaseItem(${index})"
+                    >
+                        −
+                    </button>
+
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+
+                    <button
+                        onclick="increaseItem(${index})"
+                    >
+                        +
+                    </button>
+
+
+                    <button
+                        class="remove"
+                        onclick="removeItem(${index})"
+                    >
+                        🗑️
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    cartCount.textContent = count;
+
+    totalPrice.textContent =
+        formatPrice(total);
+
+}
+
+
+
+/* ==========================================
+   + 
+========================================== */
+
+function increaseItem(index) {
+
+    cart[index].quantity++;
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+
+/* ==========================================
+   -
+========================================== */
+
+function decreaseItem(index) {
+
+    cart[index].quantity--;
+
+
+    if (cart[index].quantity <= 0) {
+
+        cart.splice(index, 1);
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+
+/* ==========================================
+   DELETE
+========================================== */
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+
+/* ==========================================
+   OPEN CART
+========================================== */
+
+function openCart() {
+
+    document
+        .getElementById("cart")
+        .classList.add("active");
+
+
+    document
+        .getElementById("overlay")
+        .classList.add("active");
+
+}
+
+
+
+/* ==========================================
+   CLOSE CART
+========================================== */
+
+function closeCart() {
+
+    document
+        .getElementById("cart")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("overlay")
+        .classList.remove("active");
+
+}
+
+
+
+/* ==========================================
+   DETAILS
+========================================== */
+
+function showDetails(
+    name,
+    price,
+    ingredients,
+    weight,
+    image
+) {
+
+    document.getElementById("modalName")
+        .textContent = name;
+
+    document.getElementById("modalPrice")
+        .textContent = price;
+
+    document.getElementById("modalIngredients")
+        .textContent = ingredients;
+
+    document.getElementById("modalWeight")
+        .textContent = weight;
+
+    document.getElementById("modalImage")
+        .src = image;
+
+
+    const numericPrice =
+        parseInt(
+            price.replace(/\D/g, "")
+        );
+
+
+    document.getElementById("modalAdd")
+        .onclick = function() {
+
+            addToCart(
+                name,
+                numericPrice
+            );
+
+            closeDetails();
+
+            openCart();
+
+        };
+
+
+    document
+        .getElementById("detailsModal")
+        .classList.add("active");
+
+}
+
+
+
+/* ==========================================
+   CLOSE DETAILS
+========================================== */
+
+function closeDetails() {
+
+    document
+        .getElementById("detailsModal")
+        .classList.remove("active");
+
+}
+
+
+function closeDetailsOutside(event) {
+
+    if (
+        event.target ===
+        document.getElementById("detailsModal")
+    ) {
+
+        closeDetails();
+
+    }
+
+}
+
+
+
+/* ==========================================
+   CHECKOUT
+========================================== */
+
+function openCheckout() {
+
+    if (cart.length === 0) {
+
+        alert(
+            "Savatchangiz bo'sh!"
+        );
+
+        return;
+
+    }
+
+
+    closeCart();
+
+
+    document
+        .getElementById("checkoutModal")
+        .classList.add("active");
+
+}
+
+
+function closeCheckout() {
+
+    document
+        .getElementById("checkoutModal")
+        .classList.remove("active");
+
+}
+
+
+
+/* ==========================================
+   TELEGRAM ORDER
+========================================== */
+
+function sendTelegram() {
+
+    const name =
+        document.getElementById("customerName")
+        .value.trim();
+
+
+    const phone =
+        document.getElementById("customerPhone")
+        .value.trim();
+
+
+    const delivery =
+        document.getElementById("delivery")
+        .value;
+
+
+    const address =
+        document.getElementById("address")
+        .value.trim();
+
+
+    const comment =
+        document.getElementById("comment")
+        .value.trim();
+
+
+    if (!name || !phone) {
+
+        alert(
+            "Iltimos, ism va telefon raqamingizni kiriting."
+        );
+
+        return;
+
+    }
+
+
+    let message =
+        "🍽️ YANGI BUYURTMA\n\n";
+
+
+    message +=
+        "👤 Ism: " + name + "\n";
+
+
+    message +=
+        "📞 Telefon: " + phone + "\n";
+
+
+    message +=
+        "🚚 Yetkazib berish: "
+        + delivery + "\n";
+
+
+    if (address) {
+
+        message +=
+            "📍 Manzil: "
+            + address + "\n";
+
+    }
+
+
+    message +=
+        "\n🛒 BUYURTMA:\n";
+
+
+    let total = 0;
+
+
+    cart.forEach(item => {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+
+        total += itemTotal;
+
+
+        message +=
+            "• "
+            + item.name
+            + " × "
+            + item.quantity
+            + " — "
+            + formatPrice(itemTotal)
+            + "\n";
+
+    });
+
+
+    message +=
+        "\n💰 JAMI: "
+        + formatPrice(total);
+
+
+    if (comment) {
+
+        message +=
+            "\n\n📝 Izoh: "
+            + comment;
+
+    }
+
+
+    /*
+       Telegram username'ga o'tish.
+       Brauzer Telegram chatini ochadi.
+    */
+
+    const telegramURL =
+        "https://t.me/"
+        + Qoziboyevgraphics;
+
+
+    navigator.clipboard
+        .writeText(message)
+        .then(() => {
+
+            alert(
+                "Buyurtma matni nusxalandi. Telegram ochiladi. Xabaringizni chatga joylashtirib yuboring."
+            );
+
+            window.open(
+                telegramURL,
+                "_blank"
+            );
+
+        })
+        .catch(() => {
+
+            window.open(
+                telegramURL,
+                "_blank"
+            );
+
+        });
+
+}
+
+
+
+/* ==========================================
+   START
+========================================== */
+
+updateCart();
+
+
+/* ESC */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeCart();
+
+            closeDetails();
+
+            closeCheckout();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
